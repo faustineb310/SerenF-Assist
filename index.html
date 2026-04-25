@@ -3,171 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SerenF'Assist | Assistante Digitale pour Thérapeutes & Praticiens</title>
-    <meta name="description" content="Libérez votre charge mentale. Support administratif et digital spécialisé pour les professionnels du bien-être. Gestion de factures, dossiers et visibilité.">
+    <title>SerenF'Assist | Faustine B. - Assistante Digitale pour Thérapeutes</title>
+    <meta name="description" content="Libérez votre charge mentale avec SerenF'Assist. Assistance administrative spécialisée pour thérapeutes et praticiens du bien-être. Basée en Polynésie, je travaille quand vous dormez.">
+    <meta name="keywords" content="assistante digitale, thérapeute, bien-être, administratif, gestion facturation, Polynésie, décalage horaire, SerenF'Assist, charge mentale">
+    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --quartz: #f7e7e8;
-            --amethyste: #e0d7ff;
-            --jade: #d1e8e2;
-            --text: #4a4a4a;
-            --accent: #8e94f2;
+            --quartz: #fce4ec; --amethyste: #f3e5f5; --jade: #e8f5e9;
+            --text: #4a4a4a; --primary: #333; --wa-green: #25D366; --li-blue: #0077B5;
         }
-
         body {
             font-family: 'Montserrat', sans-serif;
             background-image: url("https://i.ibb.co/BKBXQFtw/Carte-de-visite-20260424-184953-0000.png");
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center;
-            color: var(--text);
-            margin: 0;
-            line-height: 1.6;
+            background-size: cover; background-attachment: fixed; background-position: center;
+            color: var(--text); margin: 0; line-height: 1.6;
         }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--primary); }
+        .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
+        header, .section { text-align: center; margin-bottom: 4rem; }
+        .profile-container { width: 140px; height: 140px; margin: 0 auto 1.5rem; border-radius: 50%; overflow: hidden; border: 4px solid white; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .profile-img { width: 100%; height: 100%; object-fit: cover; }
+        .tagline { font-size: 1.2rem; color: #555; font-style: italic; margin-bottom: 0.5rem; }
+        .intro-box { background: rgba(255, 255, 255, 0.6); padding: 2rem; border-radius: 20px; backdrop-filter: blur(5px); margin-bottom: 3rem; border: 1px solid rgba(255,255,255,0.3); }
+        
+        /* Qui suis-je */
+        .about-section { background: rgba(255, 255, 255, 0.4); padding: 2.5rem; border-radius: 25px; margin-bottom: 4rem; text-align: left; }
 
-        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        /* Services */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .service-card { background: white; padding: 2rem; border-radius: 15px; text-align: left; border-top: 6px solid var(--primary); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .service-card h4 { margin-top: 0; font-size: 1.3rem; margin-bottom: 0.5rem; }
+        .service-card ul { padding-left: 1.2rem; font-size: 0.95rem; }
+        
+        /* Benefices */
+        .benefits { background: rgba(255, 255, 255, 0.3); padding: 2.5rem; border-radius: 20px; display: flex; flex-wrap: wrap; justify-content: space-around; gap: 1.5rem; border: 1px dashed rgba(0,0,0,0.1); }
+        .benefit-item { flex: 1; min-width: 200px; text-align: center; }
+        .benefit-item b { display: block; font-size: 1.1rem; color: var(--primary); }
 
-        header {
-            background: rgba(255, 255, 255, 0.4);
-            padding: 3rem 2rem;
-            text-align: center;
-            backdrop-filter: blur(3px);
-        }
+        /* Tarifs */
+        .tarifs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+        .price-card { background: white; padding: 2rem; border-radius: 20px; display: flex; flex-direction: column; position: relative; box-shadow: 0 8px 20px rgba(0,0,0,0.05); }
+        .badge { position: absolute; top: -12px; right: 15px; background: var(--primary); color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
+        .price-tag { font-size: 2.5rem; font-weight: 700; margin: 1rem 0; color: var(--primary); }
+        .price-card p { font-size: 0.9rem; flex-grow: 1; }
 
-        .profile-container {
-            width: 160px;
-            height: 160px;
-            margin: 0 auto 1.5rem;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 4px solid white;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
-        .profile-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .hero {
-            padding: 5rem 10%;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            padding: 4rem 10%;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.7);
-            padding: 2.5rem;
-            border-radius: 20px;
-            transition: all 0.4s ease;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(10px);
-            text-align: center;
-        }
-
-        .card:hover { 
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
-        }
-
-        .card h3 { margin-top: 0; color: #333; }
-        .quartz { border-top: 8px solid var(--quartz); }
-        .amethyste { border-top: 8px solid var(--amethyste); }
-        .jade { border-top: 8px solid var(--jade); }
-
-        .price {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #777;
-            display: block;
-            margin-top: 1.5rem;
-            letter-spacing: 1px;
-        }
-
-        .contact-btn {
-            display: inline-block;
-            background: #5a5a5a;
-            color: white;
-            padding: 1.2rem 2.5rem;
-            text-decoration: none;
-            border-radius: 50px;
-            margin-top: 2rem;
-            font-weight: 600;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .contact-btn:hover {
-            background: #000;
-            transform: scale(1.05);
-        }
-
-        footer {
-            text-align: center;
-            padding: 4rem 2rem;
-            font-size: 0.9rem;
-            background: rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(5px);
-        }
-
-        .tagline {
-            font-size: 1.1rem;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
-        }
+        /* Contact */
+        .contact-box { background: white; padding: 3.5rem 1.5rem; border-radius: 30px; box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
+        .btn { display: inline-flex; align-items: center; justify-content: center; width: 100%; max-width: 340px; padding: 1.2rem; margin: 0.6rem auto; border-radius: 50px; text-decoration: none; font-weight: 600; color: white; transition: 0.3s; border: none; cursor: pointer; }
+        .btn-wa { background-color: var(--wa-green); }
+        .btn-li { background-color: var(--li-blue); }
+        .btn-mail { background-color: #5a5a5a; }
+        .btn:hover { transform: scale(1.02); opacity: 0.9; }
+        .warning { color: #d32f2f; font-size: 0.85rem; font-weight: 600; margin-top: 0.8rem; }
+        
+        footer { padding: 3rem 0; font-size: 0.8rem; color: #888; text-align: center; }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="profile-container">
-        <img src="https://i.ibb.co/RkcFt9YZ/1000061024.jpg" alt="Faustine - SerenF'Assist" class="profile-img">
-    </div>
-    <h1>SerenF'Assist</h1>
-    <p class="tagline"><i>"Prendre soin de ceux qui prennent soin des autres"</i></p>
-</header>
+<div class="container">
+    <header>
+        <div class="profile-container">
+            <img src="https://i.ibb.co/RkcFt9YZ/1000061024.jpg" alt="Faustine B. - SerenF'Assist" class="profile-img">
+        </div>
+        <h1>SerenF'Assist</h1>
+        <p class="tagline">"Accompagner celles et ceux qui prennent soin des autres"</p>
+        <p><b>Assistante digitale dédiée aux praticiens du bien-être</b></p>
+    </header>
 
-<section class="hero">
-    <h2>Et si votre administratif avançait pendant votre nuit ? 🌙</h2>
-    <p>Basée en Polynésie, je travaille quand vous dormez.<br>Réveillez-vous avec un espace mental libéré.</p>
-    <a href="mailto:faustineb.pro.ad@gmail.com" class="contact-btn">On en discute ?</a>
-</section>
-
-<section class="services">
-    <div class="card quartz">
-        <h3>L'Essentiel Quartz</h3>
-        <p>Gestion de vos mails, tri des factures et mise à jour de vos dossiers patients.</p>
-        <span class="price">SUR DEVIS</span>
+    <div class="intro-box section">
+        <h3>Pendant que vous dormez, votre administratif avance.</h3>
+        <p>Grâce au décalage horaire depuis la Polynésie française, je libère votre espace mental pour que votre réveil soit synonyme de sérénité.</p>
+        <a href="mailto:faustineb.pro.ad@gmail.com" class="btn btn-mail">Diagnostic de 15 min offert</a>
     </div>
 
-    <div class="card amethyste">
-        <h3>Sérénité Améthyste</h3>
-        <p>Gestion complète Resalib/Doctolib, relances impayés et visibilité réseaux sociaux.</p>
-        <span class="price">SUR DEVIS</span>
+    <div class="about-section section">
+        <h3>Qui se cache derrière SerenF'Assist ?</h3>
+        <p>Moteur invisible de vos coulisses, je suis Faustine. Ma mission est de sécuriser votre logistique pour préserver votre espace de création.</p>
+        <p>Je suis votre lutin de nuit : j'avance sur vos dossiers quand vous dormez. Chaque facture émise et chaque dossier classé est un poids en moins sur vos épaules au saut du lit.</p>
     </div>
 
-    <div class="card jade">
-        <h3>Immersion Jade</h3>
-        <p>Le bras droit total. Organisation d'ateliers, logistique et moteur invisible de votre cabinet.</p>
-        <span class="price">SUR DEVIS</span>
+    <div class="section">
+        <h3>Mes services</h3>
+        <div class="services-grid">
+            <div class="service-card" style="border-color: var(--quartz);">
+                <h4>Structure & Clarté</h4>
+                <i>(l'esprit Quartz)</i>
+                <ul>
+                    <li>Optimisation du classement papier & numérique</li>
+                    <li>Gestion et suivi des dossiers administratifs</li>
+                    <li>Suivi des échéances et des tâches</li>
+                </ul>
+            </div>
+            <div class="service-card" style="border-color: var(--amethyste);">
+                <h4>Équilibre & Flux</h4>
+                <i>(l'esprit Améthyste)</i>
+                <ul>
+                    <li>Mise à jour des fichiers clients</li>
+                    <li>Facturation intégrale (émission et relances)</li>
+                    <li>Suivi rigoureux des paiements</li>
+                </ul>
+            </div>
+            <div class="service-card" style="border-color: var(--jade);">
+                <h4>Harmonie & Pilotage</h4>
+                <i>(l'esprit Jade)</i>
+                <ul>
+                    <li>Organisation et planification logistique</li>
+                    <li>Anticipation des échéances projets</li>
+                    <li>Coordination de vos différentes étapes</li>
+                </ul>
+            </div>
+        </div>
     </div>
-</section>
 
-<footer>
-    <p>&copy; 2026 SerenF'Assist - Faustine B. | Fondatrice 🌿</p>
-    <p>Travailler ensemble pour préserver votre espace de création.</p>
-</footer>
+    <div class="section">
+        <div class="benefits">
+            <div class="benefit-item"><b>Temps retrouvé</b>Récupérez 5h par semaine</div>
+            <div class="benefit-item"><b>Charge mentale allégée</b>Ne travaillez plus le soir</div>
+            <div class="benefit-item"><b>Sécurité financière</b>Chaque séance est facturée</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Les Tarifs Sérénité</h3>
+        <div class="tarifs-grid">
+            <div class="price-card" style="background: var(--quartz);">
+                <h4>Pack Quartz</h4>
+                <b>Volume : 5h / mois</b>
+                <span class="price-tag">200 €</span>
+                <p>L'objectif : Retrouver une vision claire dans ses dossiers. Idéal pour une remise au propre.</p>
+            </div>
+            <div class="price-card" style="background: var(--amethyste);">
+                <div class="badge">Le plus demandé</div>
+                <h4>Pack Améthyste</h4>
+                <b>Volume : 10h / mois</b>
+                <span class="price-tag">350 €</span>
+                <p>L'objectif : Maintenir l'équilibre financier sans y passer ses soirées.</p>
+            </div>
+            <div class="price-card" style="background: var(--jade);">
+                <h4>Pack Jade</h4>
+                <b>Volume : 20h / mois</b>
+                <span class="price-tag">640 €</span>
+                <p>L'objectif : Une harmonie totale pro/perso grâce à un véritable bras droit au quotidien.</p>
+            </div>
+        </div>
+        <p style="margin-top: 2.5rem; font-weight: 600;">L'Étincelle (À l'acte) : 42 € / h</p>
+        <p><small>Pour vos besoins urgents ou missions très ponctuelles sans engagement.</small></p>
+    </div>
+
+    <div class="contact-box section">
+        <h3>On libère votre agenda ?</h3>
+        <a href="https://wa.me/33772335445" class="btn btn-wa" target="_blank">WhatsApp uniquement</a>
+        <p class="warning">⚠️ Pas d'appels directs svp (Décalage horaire)</p>
+        <a href="https://www.linkedin.com/in/faustine-b-86aaba3b4" class="btn btn-li" target="_blank">Mon profil LinkedIn</a>
+        <a href="mailto:faustineb.pro.ad@gmail.com" class="btn btn-mail">faustineb.pro.ad@gmail.com</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 SerenF'Assist - Faustine B. | Fondatrice 🌿<br>Prendre soin de ceux qui prennent soin des autres.</p>
+    </footer>
+</div>
 
 </body>
 </html>
