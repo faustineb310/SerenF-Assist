@@ -4,96 +4,147 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SerenF'Assist | Faustine B.</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #8da18d; /* Vert Sauge Japandi */
+            --bg: #fdfaf5;      /* Crème Zen */
+            --text: #4a4a4a;
+            --white: #ffffff;
+        }
+        * { box-sizing: border-box; }
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #fdfdfd;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg);
             background-image: url("https://i.ibb.co/BKBXQFtw/Carte-de-visite-20260424-184953-0000.png");
             background-size: cover; background-attachment: fixed; background-position: center;
-            color: #444; margin: 0; font-weight: 300;
+            color: var(--text); margin: 0; line-height: 1.6;
         }
-        .main-wrapper { min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 40px 20px; }
-        .content-card { 
-            background: rgba(255, 255, 255, 0.92); 
-            max-width: 800px; width: 100%; 
-            padding: 60px 40px; 
-            border-radius: 4px; /* Carré chic comme l'ancien */
-            box-shadow: 0 30px 60px rgba(0,0,0,0.05);
-            text-align: center;
-        }
-        .profile-img { width: 110px; height: 110px; border-radius: 50%; object-fit: cover; margin-bottom: 25px; border: 1px solid #eee; }
-        h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 400; margin-bottom: 10px; letter-spacing: 1px; }
-        .subtitle { font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; color: #888; margin-bottom: 40px; }
-        .quote { font-style: italic; font-size: 1.1rem; color: #666; margin-bottom: 50px; }
+        .overlay { background: rgba(253, 250, 245, 0.85); min-height: 100vh; padding: 40px 20px; }
+        .container { max-width: 900px; margin: 0 auto; }
         
-        .services-section { margin-bottom: 50px; }
-        .service-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 20px; }
-        .packs-container { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-bottom: 40px; }
-        .pack { border: 1px solid #eee; padding: 20px; transition: 0.3s; }
-        .pack:hover { border-color: #ddd; background: #fff; }
-        .pack h4 { font-family: 'Playfair Display', serif; margin-top: 0; }
-        .pack p { font-size: 0.8rem; line-height: 1.4; color: #777; }
-        .price { display: block; margin-top: 15px; font-weight: 400; color: #333; }
+        header { text-align: center; margin-bottom: 60px; }
+        .logo-leaf { color: var(--primary); font-size: 2.5rem; margin-bottom: 10px; }
+        h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin: 10px 0; font-weight: 700; color: #2c2c2c; }
+        .tagline { text-transform: uppercase; letter-spacing: 3px; font-size: 0.85rem; color: #888; }
 
-        .about-text { max-width: 600px; margin: 0 auto 50px; font-size: 0.95rem; line-height: 1.8; color: #555; }
+        .hero { text-align: center; margin-bottom: 80px; }
+        .hero h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 20px; }
+        .hero p { font-size: 1.1rem; max-width: 700px; margin: 0 auto; font-weight: 300; }
+
+        /* Packs Section */
+        .packs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-bottom: 50px; }
+        .pack-card { 
+            background: var(--white); padding: 40px 30px; border-radius: 20px; 
+            text-align: center; border: 1px solid #eee; transition: 0.3s;
+        }
+        .pack-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+        .pack-card h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--primary); margin-top: 0; }
+        .pack-price { font-size: 1.8rem; font-weight: 600; display: block; margin: 15px 0; }
+        .pack-desc { font-size: 0.9rem; color: #777; margin-bottom: 20px; height: 50px; }
         
-        .links-container { display: flex; flex-direction: column; gap: 12px; max-width: 300px; margin: 0 auto; }
+        .service-list { list-style: none; padding: 0; text-align: left; font-size: 0.9rem; }
+        .service-list li { margin-bottom: 10px; display: flex; align-items: flex-start; }
+        .service-list li::before { content: "•"; color: var(--primary); font-weight: bold; margin-right: 10px; }
+
+        .extra-rate { text-align: center; font-style: italic; color: #999; margin-bottom: 80px; }
+
+        /* About Section */
+        .about { 
+            background: var(--white); padding: 50px; border-radius: 20px; 
+            display: flex; align-items: center; gap: 40px; margin-bottom: 80px;
+        }
+        .about-img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 5px solid var(--bg); flex-shrink: 0; }
+        .about-content h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-top: 0; }
+
+        /* Contact Section */
+        .contact { text-align: center; }
+        .btn-group { display: flex; flex-direction: column; gap: 15px; max-width: 350px; margin: 30px auto; }
         .btn { 
-            text-decoration: none; color: #444; border: 1px solid #444; 
-            padding: 14px; font-size: 0.85rem; letter-spacing: 2px; 
-            text-transform: uppercase; transition: 0.4s;
+            text-decoration: none; padding: 18px 30px; border-radius: 50px; 
+            font-weight: 600; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;
+            transition: 0.3s;
         }
-        .btn:hover { background: #444; color: #fff; }
-        .btn-wa { background: #25D366; color: white; border-color: #25D366; }
-        .btn-wa:hover { background: #1eb956; border-color: #1eb956; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-outline { border: 1px solid var(--primary); color: var(--primary); }
+        .btn:hover { opacity: 0.9; transform: scale(1.02); }
 
-        @media (max-width: 600px) {
-            .packs-container { grid-template-columns: 1fr; }
-            .content-card { padding: 40px 20px; }
+        @media (max-width: 768px) {
+            .about { flex-direction: column; text-align: center; padding: 30px; }
+            h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
-<div class="main-wrapper">
-    <div class="content-card">
-        <img src="https://i.ibb.co/RkcFt9YZ/1000061024.jpg" class="profile-img" alt="Faustine">
-        <h1>SerenF'Assist</h1>
-        <div class="subtitle">Faustine B.</div>
-        
-        <div class="quote">"Pendant que vous dormez, votre administratif avance."</div>
+<div class="overlay">
+    <div class="container">
+        <header>
+            <div class="logo-leaf">🌿</div>
+            <div class="tagline">Faustine B.</div>
+            <h1>SerenF'Assist</h1>
+        </header>
 
-        <div class="services-section">
-            <h3 class="service-title">Mes Services Sérénité</h3>
-            <div class="packs-container">
-                <div class="pack">
-                    <h4>Quartz</h4>
-                    <p>Structure & Clarté<br>5h / mois</p>
-                    <span class="price">200€</span>
-                </div>
-                <div class="pack">
-                    <h4>Améthyste</h4>
-                    <p>Équilibre & Flux<br>10h / mois</p>
-                    <span class="price">350€</span>
-                </div>
-                <div class="pack">
-                    <h4>Jade</h4>
-                    <p>Harmonie & Pilotage<br>20h / mois</p>
-                    <span class="price">640€</span>
-                </div>
+        <section class="hero">
+            <h2>Libérez votre énergie</h2>
+            <p>Vous consacrez votre vie à prendre soin des autres. Il est temps que quelqu'un prenne soin de votre organisation. <b>"Pendant que vous dormez, votre administratif avance."</b></p>
+        </section>
+
+        <div class="packs-grid">
+            <div class="pack-card">
+                <h3>Quartz</h3>
+                <span class="pack-desc">Structure & Clarté</span>
+                <span class="pack-price">200 €</span>
+                <ul class="service-list">
+                    <li>5h d'accompagnement / mois</li>
+                    <li>Tri & classement digital</li>
+                    <li>Suivi administratif de base</li>
+                </ul>
+            </div>
+            <div class="pack-card">
+                <h3>Améthyste</h3>
+                <span class="pack-desc">Équilibre & Flux</span>
+                <span class="pack-price">350 €</span>
+                <ul class="service-list">
+                    <li>10h d'accompagnement / mois</li>
+                    <li>Gestion des factures & relances</li>
+                    <li>Mise à jour fichiers clients</li>
+                </ul>
+            </div>
+            <div class="pack-card">
+                <h3>Jade</h3>
+                <span class="pack-desc">Harmonie & Pilotage</span>
+                <span class="pack-price">640 €</span>
+                <ul class="service-list">
+                    <li>20h d'accompagnement / mois</li>
+                    <li>Coordination de projets complète</li>
+                    <li>Pré-comptabilité totale</li>
+                </ul>
             </div>
         </div>
+        <p class="extra-rate">L'Étincelle (travail à l'acte) : 42€ / h</p>
 
-        <div class="about-text">
-            Moteur invisible de vos coulisses, je suis Faustine. Basée en Polynésie, je suis votre lutin de nuit : j'interviens sur vos dossiers pendant votre sommeil pour vous offrir un réveil serein.
-        </div>
+        <section class="about">
+            <img src="https://i.ibb.co/RkcFt9YZ/1000061024.jpg" alt="Faustine" class="about-img">
+            <div class="about-content">
+                <h3>Qui suis-je ?</h3>
+                <p>Moteur invisible de vos coulisses, je suis Faustine. Ma mission est de sécuriser votre logistique pour préserver votre espace de création.</p>
+                <p>Basée en Polynésie, je suis votre <b>lutin de nuit</b> : j'interviens sur vos dossiers pendant votre sommeil pour vous offrir un réveil serein.</p>
+            </div>
+        </section>
 
-        <div class="links-container">
-            <a href="mailto:faustineb.pro.ad@gmail.com?subject=Contact" class="btn">Envoyer un mail</a>
-            <a href="https://wa.me/33772335445" class="btn btn-wa">WhatsApp uniquement</a>
-            <a href="https://www.linkedin.com/in/faustine-b-86aaba3b4" class="btn">LinkedIn</a>
-        </div>
+        <section class="contact">
+            <h3>Parlons de votre situation</h3>
+            <div class="btn-group">
+                <a href="mailto:faustineb.pro.ad@gmail.com?subject=Demande de diagnostic SerenF'Assist" class="btn btn-primary">Envoyer un mail</a>
+                <a href="https://wa.me/33772335445" class="btn btn-outline">WhatsApp uniquement</a>
+                <a href="https://www.linkedin.com/in/faustine-b-86aaba3b4" class="btn btn-outline">Me rejoindre sur LinkedIn</a>
+            </div>
+        </section>
+
+        <footer style="text-align: center; margin-top: 60px; font-size: 0.8rem; color: #999;">
+            &copy; 2026 SerenF'Assist - Polynésie Française
+        </footer>
     </div>
 </div>
 
