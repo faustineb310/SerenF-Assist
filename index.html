@@ -6,147 +6,90 @@
     <title>SerenF'Assist | Faustine B.</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #8da18d; /* Vert Sauge Japandi */
-            --bg: #fdfaf5;      /* Crème Zen */
-            --text: #4a4a4a;
-            --white: #ffffff;
-        }
-        * { box-sizing: border-box; }
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg);
-            background-image: url("https://i.ibb.co/BKBXQFtw/Carte-de-visite-20260424-184953-0000.png");
-            background-size: cover; background-attachment: fixed; background-position: center;
-            color: var(--text); margin: 0; line-height: 1.6;
-        }
-        .overlay { background: rgba(253, 250, 245, 0.85); min-height: 100vh; padding: 40px 20px; }
-        .container { max-width: 900px; margin: 0 auto; }
+        :root { --primary: #6b8e6b; --bg: #f9fbf9; --text: #333; }
+        body { font-family: 'Poppins', sans-serif; margin: 0; background: var(--bg); color: var(--text); overflow-x: hidden; }
         
-        header { text-align: center; margin-bottom: 60px; }
-        .logo-leaf { color: var(--primary); font-size: 2.5rem; margin-bottom: 10px; }
-        h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin: 10px 0; font-weight: 700; color: #2c2c2c; }
-        .tagline { text-transform: uppercase; letter-spacing: 3px; font-size: 0.85rem; color: #888; }
-
-        .hero { text-align: center; margin-bottom: 80px; }
-        .hero h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 20px; }
-        .hero p { font-size: 1.1rem; max-width: 700px; margin: 0 auto; font-weight: 300; }
-
-        /* Packs Section */
-        .packs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-bottom: 50px; }
-        .pack-card { 
-            background: var(--white); padding: 40px 30px; border-radius: 20px; 
-            text-align: center; border: 1px solid #eee; transition: 0.3s;
+        /* Design "Manus" : Fond avec feuilles */
+        .page-wrapper {
+            background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663472917334/XZPfGvKt8cf3yWiapxKHC4/hero-background-b9driXXTyAJou3aJVpqVss.webp');
+            background-size: cover; background-position: center; min-height: 100vh;
         }
-        .pack-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
-        .pack-card h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--primary); margin-top: 0; }
-        .pack-price { font-size: 1.8rem; font-weight: 600; display: block; margin: 15px 0; }
-        .pack-desc { font-size: 0.9rem; color: #777; margin-bottom: 20px; height: 50px; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; background: rgba(255,255,255,0.92); }
         
-        .service-list { list-style: none; padding: 0; text-align: left; font-size: 0.9rem; }
-        .service-list li { margin-bottom: 10px; display: flex; align-items: flex-start; }
-        .service-list li::before { content: "•"; color: var(--primary); font-weight: bold; margin-right: 10px; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding-bottom: 60px; }
+        .logo { font-weight: bold; font-size: 1.5rem; display: flex; align-items: center; gap: 10px; }
+        
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        h1 { font-size: 4rem; line-height: 1.1; margin: 0 0 20px 0; }
+        
+        .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; padding-bottom: 100px; }
+        .hero-text p { font-size: 1.2rem; color: #666; margin-bottom: 30px; }
+        
+        .btn { background: var(--primary); color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; display: inline-block; font-weight: 600; }
 
-        .extra-rate { text-align: center; font-style: italic; color: #999; margin-bottom: 80px; }
+        /* Grille des Packs */
+        .packs { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+        .card { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #eee; }
+        .price { font-size: 2rem; font-weight: bold; color: var(--primary); display: block; margin: 15px 0; }
+        
+        .about { display: grid; grid-template-columns: 300px 1fr; gap: 50px; align-items: center; margin-top: 100px; padding: 60px; background: #fff; border-radius: 20px; }
+        .about img { width: 100%; border-radius: 20px; filter: grayscale(20%); }
 
-        /* About Section */
-        .about { 
-            background: var(--white); padding: 50px; border-radius: 20px; 
-            display: flex; align-items: center; gap: 40px; margin-bottom: 80px;
-        }
-        .about-img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 5px solid var(--bg); flex-shrink: 0; }
-        .about-content h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-top: 0; }
-
-        /* Contact Section */
-        .contact { text-align: center; }
-        .btn-group { display: flex; flex-direction: column; gap: 15px; max-width: 350px; margin: 30px auto; }
-        .btn { 
-            text-decoration: none; padding: 18px 30px; border-radius: 50px; 
-            font-weight: 600; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;
-            transition: 0.3s;
-        }
-        .btn-primary { background: var(--primary); color: white; }
-        .btn-outline { border: 1px solid var(--primary); color: var(--primary); }
-        .btn:hover { opacity: 0.9; transform: scale(1.02); }
-
-        @media (max-width: 768px) {
-            .about { flex-direction: column; text-align: center; padding: 30px; }
-            h1 { font-size: 2.2rem; }
-        }
+        @media (max-width: 768px) { .hero, .about { grid-template-columns: 1fr; text-align: center; } h1 { font-size: 2.5rem; } }
     </style>
 </head>
 <body>
+    <div class="page-wrapper">
+        <div class="container">
+            <nav>
+                <div class="logo">🌿 SerenF'Assist</div>
+                <div style="font-size: 0.9rem; letter-spacing: 1px;">SERVICES • À PROPOS • CONTACT</div>
+            </nav>
 
-<div class="overlay">
-    <div class="container">
-        <header>
-            <div class="logo-leaf">🌿</div>
-            <div class="tagline">Faustine B.</div>
-            <h1>SerenF'Assist</h1>
-        </header>
+            <section class="hero">
+                <div class="hero-text">
+                    <h1>Libérez votre énergie</h1>
+                    <p>Vous consacrez votre énergie à prendre soin des autres. Il est temps que quelqu'un prenne soin de votre organisation administrative.</p>
+                    <p style="font-style: italic; color: var(--primary);">"Le Lutin de Nuit : je travaille quand vous dormez."</p>
+                    <a href="mailto:faustineb.pro.ad@gmail.com" class="btn">Me contacter →</a>
+                </div>
+                <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663472917334/XZPfGvKt8cf3yWiapxKHC4/services-section-bg-LJSMQK4nFAeLaWcDUre7UZ.webp" style="width: 100%;" alt="Zen">
+            </section>
 
-        <section class="hero">
-            <h2>Libérez votre énergie</h2>
-            <p>Vous consacrez votre vie à prendre soin des autres. Il est temps que quelqu'un prenne soin de votre organisation. <b>"Pendant que vous dormez, votre administratif avance."</b></p>
-        </section>
+            <h2 style="text-align: center; font-size: 2.5rem;">Mes Offres de Sérénité</h2>
+            <div class="packs">
+                <div class="card">
+                    <h3>Pack Quartz</h3>
+                    <span class="price">200 € / mois</span>
+                    <p>Structure & Clarté (5h). Pour un administratif trié et classé chaque mois.</p>
+                </div>
+                <div class="card" style="border: 2px solid var(--primary);">
+                    <h3>Pack Améthyste</h3>
+                    <span class="price">350 € / mois</span>
+                    <p>Équilibre & Flux (10h). Gestion des factures, relances et fichiers clients.</p>
+                </div>
+                <div class="card">
+                    <h3>Pack Jade</h3>
+                    <span class="price">640 € / mois</span>
+                    <p>Harmonie & Pilotage (20h). Coordination de projets et pré-comptabilité totale.</p>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 30px; font-style: italic;">L'Étincelle (à l'acte) : 42€ / h</p>
 
-        <div class="packs-grid">
-            <div class="pack-card">
-                <h3>Quartz</h3>
-                <span class="pack-desc">Structure & Clarté</span>
-                <span class="pack-price">200 €</span>
-                <ul class="service-list">
-                    <li>5h d'accompagnement / mois</li>
-                    <li>Tri & classement digital</li>
-                    <li>Suivi administratif de base</li>
-                </ul>
-            </div>
-            <div class="pack-card">
-                <h3>Améthyste</h3>
-                <span class="pack-desc">Équilibre & Flux</span>
-                <span class="pack-price">350 €</span>
-                <ul class="service-list">
-                    <li>10h d'accompagnement / mois</li>
-                    <li>Gestion des factures & relances</li>
-                    <li>Mise à jour fichiers clients</li>
-                </ul>
-            </div>
-            <div class="pack-card">
-                <h3>Jade</h3>
-                <span class="pack-desc">Harmonie & Pilotage</span>
-                <span class="pack-price">640 €</span>
-                <ul class="service-list">
-                    <li>20h d'accompagnement / mois</li>
-                    <li>Coordination de projets complète</li>
-                    <li>Pré-comptabilité totale</li>
-                </ul>
-            </div>
+            <section class="about">
+                <img src="https://i.ibb.co/RkcFt9YZ/1000061024.jpg" alt="Faustine">
+                <div>
+                    <h2>Moteur invisible de vos coulisses</h2>
+                    <p>Je suis Faustine. Ma mission est de sécuriser votre logistique pour préserver votre espace de création.</p>
+                    <p>Basée en Polynésie, j'interviens pendant votre sommeil pour vous offrir un réveil serein, sans montagne administrative sur les épaules.</p>
+                </div>
+            </section>
+
+            <footer style="text-align: center; padding-top: 100px; font-size: 0.8rem; opacity: 0.6;">
+                © 2026 SerenF'Assist - Humaine. Bienveillante. Courageuse.
+            </footer>
         </div>
-        <p class="extra-rate">L'Étincelle (travail à l'acte) : 42€ / h</p>
-
-        <section class="about">
-            <img src="https://i.ibb.co/RkcFt9YZ/1000061024.jpg" alt="Faustine" class="about-img">
-            <div class="about-content">
-                <h3>Qui suis-je ?</h3>
-                <p>Moteur invisible de vos coulisses, je suis Faustine. Ma mission est de sécuriser votre logistique pour préserver votre espace de création.</p>
-                <p>Basée en Polynésie, je suis votre <b>lutin de nuit</b> : j'interviens sur vos dossiers pendant votre sommeil pour vous offrir un réveil serein.</p>
-            </div>
-        </section>
-
-        <section class="contact">
-            <h3>Parlons de votre situation</h3>
-            <div class="btn-group">
-                <a href="mailto:faustineb.pro.ad@gmail.com?subject=Demande de diagnostic SerenF'Assist" class="btn btn-primary">Envoyer un mail</a>
-                <a href="https://wa.me/33772335445" class="btn btn-outline">WhatsApp uniquement</a>
-                <a href="https://www.linkedin.com/in/faustine-b-86aaba3b4" class="btn btn-outline">Me rejoindre sur LinkedIn</a>
-            </div>
-        </section>
-
-        <footer style="text-align: center; margin-top: 60px; font-size: 0.8rem; color: #999;">
-            &copy; 2026 SerenF'Assist - Polynésie Française
-        </footer>
     </div>
-</div>
-
 </body>
 </html>
